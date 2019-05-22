@@ -1,6 +1,6 @@
 @extends('layouts.facturas')
 @section('content')
-<div id="create_factura" class="col-md-6">
+<div id="create_factura" class="col-md-8">
   <div class="d-flex justify-content-between col-md-12 form-group">
     <div class="col-md-4">
       <label for="nofac">No Factura</label>
@@ -21,18 +21,18 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCliente">Buscar Cliente
               </button>
             </span>
-            <input type="text" name="nit" class="form-control" v-model="cnom">  
+            <input type="text" name="cliente" class="form-control" v-model="cnom">
           </div>
         </div>
       </div>
       <div class="d-flex justify-content-between">
         <div class="col-md-4">
           <label for="nit">Nit</label>
-          <input type="text" name="nit" class="form-control" v-model="cnit">  
+          <input type="text" name="nit" class="form-control" v-model="cnit">
         </div>
         <div class="col-md-8">
           <label for="dir">Direccion</label>
-          <input type="text" name="dir" class="form-control" v-model="cdir">  
+          <input type="text" name="dir" class="form-control" v-model="cdir">
         </div>
       </div>
   </div>
@@ -71,7 +71,19 @@
   </div>
 <!-- Ventana Modal para el Cliente-->
   <div class="input-group col-md-12">
-     <input type="text" class="form-control" id="busqueda">
+    <div class="search-wrapper">
+     <input type="text" v-model="search" placeholder="Search title.."/>
+         <label>Search title:</label>
+   </div>
+   <div class="wrapper">
+    <div class="card" v-for="post in filteredList">
+      <a v-bind:href="post.link" target="_blank">
+        <img v-bind:src="post.img"/>
+        <small>posted by: @{{ post.author }}</small>
+        @{{ post.title }}
+      </a>
+    </div>
+  </div>
      <span class="input-group-btn">
           <button class="btn btn-info disabled" type="button">Buscar</button>
      </span>
