@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cliente;
 
-class ClienteController extends Controller
+class clientecontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::get();
-        return $clientes;
+        $clientes= Cliente::all();
+        return view('Clientes.index',compact('clientes'));
+
     }
 
     /**
@@ -26,7 +27,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('Clientes.create');
     }
 
     /**
@@ -37,7 +38,14 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new cliente;
+        $cliente->nit = $request->input('nit');
+        $cliente->nombre = $request->input('nombre');
+        $cliente->direccion = $request->input('direccion');
+        $cliente->telefono = $request->input('telefono');
+        $cliente->activo = 1;
+        $cliente->save();
+        return redirect()->action('ClienteController@index');
     }
 
     /**
@@ -48,7 +56,8 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
+         $cliente = cliente::where('id_cliente','=',$id)->firstOrFail();
+        return view('clientes.show',compact('cliente'));
     }
 
     /**
@@ -57,9 +66,9 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(cliente $cliente)
     {
-        //
+        return view('clientes.edit',compact('cliente'));
     }
 
     /**
@@ -69,9 +78,16 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, cliente $cliente)
     {
-        //
+        if($request->has('activo')){
+            $cliente->activo=1;
+        }else{
+            $cliente->activo=0;
+        }
+        $cliente->fill($request->except('activo'));
+        $cliente->save();
+        return redirect()->action('ClienteController@index');
     }
 
     /**
@@ -80,8 +96,9 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return redirect()->action('ClienteController@index');
     }
 }

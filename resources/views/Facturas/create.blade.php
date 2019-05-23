@@ -1,6 +1,6 @@
 @extends('layouts.facturas')
 @section('content')
-<div id="create_factura" class="col-md-6">
+<div id="create_factura" class="col-md-8">
   <div class="d-flex justify-content-between col-md-12 form-group">
     <div class="col-md-4">
       <label for="nofac">No Factura</label>
@@ -21,18 +21,22 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCliente">Buscar Cliente
               </button>
             </span>
+<<<<<<< HEAD
             <input type="text" name="cliente" class="form-control" v-model="cnom">  
+=======
+            <input type="text" name="cliente" class="form-control" v-model="cnom">
+>>>>>>> 0c6eeaec5f2cf87d934040898b018e37c00730a2
           </div>
         </div>
       </div>
       <div class="d-flex justify-content-between">
         <div class="col-md-4">
           <label for="nit">Nit</label>
-          <input type="text" name="nit" class="form-control" v-model="cnit">  
+          <input type="text" name="nit" class="form-control" v-model="cnit">
         </div>
         <div class="col-md-8">
           <label for="dir">Direccion</label>
-          <input type="text" name="dir" class="form-control" v-model="cdir">  
+          <input type="text" name="dir" class="form-control" v-model="cdir">
         </div>
       </div>
   </div>
@@ -72,11 +76,17 @@
 <!-- Ventana Modal para el Cliente-->
 {{-- {{ Form::open(['route' => 'facturas', 'method' => 'GET']) }} --}}
   <div class="input-group col-md-12">
+<<<<<<< HEAD
         {{-- {{Form::text('buscar', null, ['class' => 'form-control', 'id' => 'busqueda'], ['v-on:keypress.prevent'=>'presionar'])}} --}}
        <input type="text" name="buscar" class="form-control" v-on:keyup="{{$modelo->ScopeNombre(buscar)}}">
        <span class="input-group-btn">
             {{Form::submit('Buscar', ['class' => 'btn btn-info'])}}
        </span>
+=======
+     <span class="input-group-btn">
+          <button class="btn btn-info disabled" type="button">Buscar</button>
+     </span>
+>>>>>>> 0c6eeaec5f2cf87d934040898b018e37c00730a2
      <table class="table table-striped">
       <thead>
         <td>Producto</td>
@@ -99,8 +109,11 @@
     {{-- {{ Form::close() }} --}}
 </div>
 @endsection
+<<<<<<< HEAD
 
 {{-- <input type="text" class="form-control" id="busqueda" name="buscar">
      <span class="input-group-btn">
           <button class="btn btn-info disabled" type="button">Buscar</button>
      </span> --}}
+=======
+>>>>>>> 0c6eeaec5f2cf87d934040898b018e37c00730a2

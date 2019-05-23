@@ -33,6 +33,7 @@ Route::resource('clientes','ClienteController');
 
 Route::resource('productos','ProductoController');
 
+
 // Route::get('clientes',function(){
 // 	$clientes = Cliente::get();
 // 	return $clientes;
