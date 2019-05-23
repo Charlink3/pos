@@ -70,11 +70,13 @@
     </div>
   </div>
 <!-- Ventana Modal para el Cliente-->
+{{-- {{ Form::open(['route' => 'facturas', 'method' => 'GET']) }} --}}
   <div class="input-group col-md-12">
-     <input type="text" class="form-control" id="busqueda">
-     <span class="input-group-btn">
-          <button class="btn btn-info disabled" type="button">Buscar</button>
-     </span>
+        {{-- {{Form::text('buscar', null, ['class' => 'form-control', 'id' => 'busqueda'], ['v-on:keypress.prevent'=>'presionar'])}} --}}
+       <input type="text" name="buscar" class="form-control" v-on:keyup="{{$modelo->ScopeNombre(buscar)}}">
+       <span class="input-group-btn">
+            {{Form::submit('Buscar', ['class' => 'btn btn-info'])}}
+       </span>
      <table class="table table-striped">
       <thead>
         <td>Producto</td>
@@ -93,28 +95,12 @@
         @endforeach
       </tbody>
     </table>
-  </div>
+    </div>
+    {{-- {{ Form::close() }} --}}
 </div>
 @endsection
-<script>
-  $(document).ready(function(){
 
-    $('#busqueda').keyup(function(){
-      var query = $(this).val();
-      if(query != '')
-      {
-        var _token = $('input[name="_token"]').val();
-        $.ajax({
-          url: "{{ route('busqueda.fetch') }}",
-          method: "POST",
-          data:{query:query, _token:_token},
-          success:function(data)
-          {
-            $('#articulo').fadeIn();
-            $('#articulo').html(data);
-          }
-        })
-      }
-    })
-  })
-</script>
+{{-- <input type="text" class="form-control" id="busqueda" name="buscar">
+     <span class="input-group-btn">
+          <button class="btn btn-info disabled" type="button">Buscar</button>
+     </span> --}}

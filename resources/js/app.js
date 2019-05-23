@@ -75,6 +75,9 @@ new Vue({
       axios.get(urlProductos).then(response => {
         this.productos = response.data
       })
+    },
+    presionar(){
+      alert('dio enter');
     }
   }
 });

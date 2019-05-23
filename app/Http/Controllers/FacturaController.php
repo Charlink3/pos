@@ -41,12 +41,12 @@ class FacturaController extends Controller
         ->select(DB::raw('producto.id_producto as id, producto.descripcion as prod, marca.descripcion as marca, categoria.descripcion as categoria'))
             ->join('marca','marca.id_marca','=','producto.id_marca')
             ->join('categoria','categoria.id_categoria','=','producto.id_categoria')
-            //->select('producto.id_producto as id', 'producto.descripcion as prod', 'marca.descripcion as marca', 'categoria.descripcion as categoria')
             ->where('producto.descripcion', 'like', '%%')
             ->orWhere('marca.descripcion', 'like', '%%')
             ->orWhere('categoria.descripcion', 'like', '%%')
             ->get();
-        return view('facturas.create',compact('facturas','clientes','result','productos'));
+        $modelo = fac_enc::find(1);
+        return view('facturas.create',compact('facturas','clientes','result','productos','modelo'));
     }
 
     /**

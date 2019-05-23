@@ -27,14 +27,11 @@ Route::resource('empresa','EmpresaController', ['except' => ['create', 'store', 
 Route::resource('usuarios','UserController');
 
 Route::resource('facturas','FacturaController');
+Route::get('facturas', 'FacturaController@index')->name('facturas');
 
 Route::resource('clientes','ClienteController');
 
 Route::resource('productos','ProductoController');
-
-Route::get('/busqueda','BusquedaController@index');
-
-Route::post('/busqueda/fetch','BusquedaController@fetch')->name('busqueda.fetch');
 
 // Route::get('clientes',function(){
 // 	$clientes = Cliente::get();
