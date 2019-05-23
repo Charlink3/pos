@@ -71,19 +71,6 @@
   </div>
 <!-- Ventana Modal para el Cliente-->
   <div class="input-group col-md-12">
-    <div class="search-wrapper">
-     <input type="text" v-model="search" placeholder="Search title.."/>
-         <label>Search title:</label>
-   </div>
-   <div class="wrapper">
-    <div class="card" v-for="post in filteredList">
-      <a v-bind:href="post.link" target="_blank">
-        <img v-bind:src="post.img"/>
-        <small>posted by: @{{ post.author }}</small>
-        @{{ post.title }}
-      </a>
-    </div>
-  </div>
      <span class="input-group-btn">
           <button class="btn btn-info disabled" type="button">Buscar</button>
      </span>
@@ -108,25 +95,3 @@
   </div>
 </div>
 @endsection
-<script>
-  $(document).ready(function(){
-
-    $('#busqueda').keyup(function(){
-      var query = $(this).val();
-      if(query != '')
-      {
-        var _token = $('input[name="_token"]').val();
-        $.ajax({
-          url: "{{ route('busqueda.fetch') }}",
-          method: "POST",
-          data:{query:query, _token:_token},
-          success:function(data)
-          {
-            $('#articulo').fadeIn();
-            $('#articulo').html(data);
-          }
-        })
-      }
-    })
-  })
-</script>
