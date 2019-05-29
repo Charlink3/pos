@@ -53,11 +53,11 @@ new Vue({
   },
   data: {
     clientes: [],
-    cli: [{nit: ''}],
     cnit: '',
     cnom: '',
     cdir: '',
-    productos: []
+    productos: [],
+    busca: ''
   },
   methods:
   {
@@ -75,9 +75,13 @@ new Vue({
       axios.get(urlProductos).then(response => {
         this.productos = response.data
       })
-    },
-    presionar(){
-      alert('dio enter');
-    }
-  }
+    }, 
+  },
+  computed: {
+        filtroproducto: function(){
+          return this.productos.filter((producto) => {
+            return producto.descripcion.match(this.busca);
+          });
+        }
+      }
 });

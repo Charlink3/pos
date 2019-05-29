@@ -20,6 +20,9 @@ mix.scripts([
 	'resources/js/toastr.js',
 	'resources/js/vue.js',
 	'resources/js/axios.js',
+	'resources/js/jquery.dcjqaccordion.2.7.js',
+	'resources/js/jquery.scrollTo.min.js',
+	'resources/js/common-scripts.js',
 	'resources/js/app.js',
 	], 'public/js/app.js').
 styles([

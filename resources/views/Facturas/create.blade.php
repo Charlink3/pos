@@ -21,11 +21,8 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCliente">Buscar Cliente
               </button>
             </span>
-<<<<<<< HEAD
             <input type="text" name="cliente" class="form-control" v-model="cnom">  
-=======
             <input type="text" name="cliente" class="form-control" v-model="cnom">
->>>>>>> 0c6eeaec5f2cf87d934040898b018e37c00730a2
           </div>
         </div>
       </div>
@@ -76,17 +73,14 @@
 <!-- Ventana Modal para el Cliente-->
 {{-- {{ Form::open(['route' => 'facturas', 'method' => 'GET']) }} --}}
   <div class="input-group col-md-12">
-<<<<<<< HEAD
         {{-- {{Form::text('buscar', null, ['class' => 'form-control', 'id' => 'busqueda'], ['v-on:keypress.prevent'=>'presionar'])}} --}}
-       <input type="text" name="buscar" class="form-control" v-on:keyup="{{$modelo->ScopeNombre(buscar)}}">
-       <span class="input-group-btn">
+       <input type="text" name="buscar" class="form-control">
+       {{-- <span class="input-group-btn">
             {{Form::submit('Buscar', ['class' => 'btn btn-info'])}}
-       </span>
-=======
+       </span> --}}
      <span class="input-group-btn">
           <button class="btn btn-info disabled" type="button">Buscar</button>
      </span>
->>>>>>> 0c6eeaec5f2cf87d934040898b018e37c00730a2
      <table class="table table-striped">
       <thead>
         <td>Producto</td>
@@ -95,25 +89,25 @@
         <td>Accion</td>
       </thead>
       <tbody id="articulo">
-        @foreach($productos as $producto)
-        <tr>
-          <td>{{$producto->prod}}</td>
+        {{-- @foreach($productos as $producto) --}}
+        <tr v-for="producto in filtroproducto">
+          <td>@{{producto.prod}}</td>
+          <td></td>
+          <td></td>
+          {{-- <td>{{$producto->prod}}</td>
           <td>{{$producto->marca}}</td>
-          <td>{{$producto->categoria}}</td>
+          <td>{{$producto->categoria}}</td> --}}
           <td><button class="btn btn-success">+</button></td>
         </tr>
-        @endforeach
+        {{-- @endforeach --}}
       </tbody>
     </table>
     </div>
     {{-- {{ Form::close() }} --}}
 </div>
 @endsection
-<<<<<<< HEAD
 
 {{-- <input type="text" class="form-control" id="busqueda" name="buscar">
      <span class="input-group-btn">
           <button class="btn btn-info disabled" type="button">Buscar</button>
      </span> --}}
-=======
->>>>>>> 0c6eeaec5f2cf87d934040898b018e37c00730a2
