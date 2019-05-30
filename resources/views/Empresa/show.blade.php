@@ -1,6 +1,5 @@
-@extends('layouts.empresa');
+@extends('layouts.empresa')
 @section('content')
-
 	<body>
 		<div class="row col-md-8">
 		<table class="table table-striped">

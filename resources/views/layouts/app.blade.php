@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -20,8 +20,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
@@ -118,7 +116,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-zac.jpg"></span>
+                                    <span class="photo"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
                                     <span class="time">Just now</span>
@@ -130,7 +128,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-divya.jpg"></span>
+                                    <span class="photo"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
                                     <span class="time">40 mins.</span>
@@ -142,7 +140,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-danro.jpg"></span>
+                                    <span class="photo"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
                                     <span class="time">2 hrs.</span>
@@ -154,7 +152,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-sherman.jpg"></span>
+                                    <span class="photo"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
                                     <span class="time">4 hrs.</span>
@@ -180,7 +178,7 @@
             </div>
         </header>
       <!--header end-->
-      
+
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
@@ -189,10 +187,10 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-              
+
 <!--                  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered">Marcel Newman</h5>-->
-                    
+
                   <li class="mt">
                       <a href="#">
                           <i class="fa fa-dashboard"></i>
@@ -298,36 +296,36 @@
           </div>
       </aside>
       <!--sidebar end-->
-      
+
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper site-min-height">
-            <h3><i class="fa fa-angle-right"></i> CONFIGURACI&Oacute;N</h3>
-            <main class="py-4">
-            <div class="container">
-                @yield('content')
-            </div>
-        </main>
-            
-        </section><! --/wrapper -->
-      </section><!-- /MAIN CONTENT -->
-
+      <div id="app">
+          <section class="container" >
+            <section id="main-content">
+                <section class="wrapper site-min-height">
+                  <main>
+                    <h3><i class="fa fa-angle-right"></i> CONFIGURACI&Oacute;N</h3>
+                          @yield('content')
+                  </main>
+                </section>
+              </section>
+            </section>
+        </div><!-- /MAIN CONTENT -->
       <!--main content end-->
       <!--footer start-->
-      <footer class="site-footer">
+      {{-- <footer class="site-footer">
           <div class="text-center">
               Tripode Systems - 2019
               <a href="blank.html#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>
-      </footer>
+      </footer> --}}
       <!--footer end-->
-  </section>
-
+    </body>
+</html>
     <!-- js placed at the end of the document so the pages load faster -->
     {{-- <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -342,7 +340,7 @@
     <script src="assets/js/common-scripts.js"></script> --}}
 
     <!--script for this page-->
-    
+
   {{-- <script>
       //custom select box
 
@@ -402,9 +400,3 @@
                 </div>
             </div>
         </nav> --}}
-
-        
-    </div>
-    @yield('jscript')
-</body>
-</html>

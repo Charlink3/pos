@@ -21,7 +21,6 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCliente">Buscar Cliente
               </button>
             </span>
-            <input type="text" name="cliente" class="form-control" v-model="cnom">  
             <input type="text" name="cliente" class="form-control" v-model="cnom">
           </div>
         </div>
@@ -57,11 +56,14 @@
                 <td></td>
               </thead>
               <tbody>
-                <tr v-for="(cliente, index) in clientes">
+                {{-- <tr v-for="(cliente, index) of clientes" :key="id_cliente">
                     <td>@{{cliente.nit}}</td>
                     <td>@{{cliente.nombre}}</td>
                     <td>@{{cliente.direccion}}</td>
                     <td><a href="" class="btn btn-primary" data-dismiss="modal" aria-label="Close" v-on:click.prevent="verCliente(index)">Seleccionar</a></td>
+                  </tr> --}}
+                  <tr v-for="cliente in clientes">
+                    <td>@{{cliente.id_cliente}}</td>
                   </tr>
               </tbody>
             </table>
@@ -70,14 +72,9 @@
       </div>
     </div>
   </div>
-<!-- Ventana Modal para el Cliente-->
-{{-- {{ Form::open(['route' => 'facturas', 'method' => 'GET']) }} --}}
+<!-- Fin Ventana Modal para el Cliente-->
   <div class="input-group col-md-12">
-        {{-- {{Form::text('buscar', null, ['class' => 'form-control', 'id' => 'busqueda'], ['v-on:keypress.prevent'=>'presionar'])}} --}}
        <input type="text" name="buscar" class="form-control">
-       {{-- <span class="input-group-btn">
-            {{Form::submit('Buscar', ['class' => 'btn btn-info'])}}
-       </span> --}}
      <span class="input-group-btn">
           <button class="btn btn-info disabled" type="button">Buscar</button>
      </span>
@@ -89,25 +86,16 @@
         <td>Accion</td>
       </thead>
       <tbody id="articulo">
-        {{-- @foreach($productos as $producto) --}}
-        <tr v-for="producto in filtroproducto">
-          <td>@{{producto.prod}}</td>
+        @foreach($productos as $producto)
+          <td>{{$producto->producto}}</td>
           <td></td>
           <td></td>
-          {{-- <td>{{$producto->prod}}</td>
-          <td>{{$producto->marca}}</td>
-          <td>{{$producto->categoria}}</td> --}}
           <td><button class="btn btn-success">+</button></td>
         </tr>
-        {{-- @endforeach --}}
+        @endforeach
       </tbody>
     </table>
     </div>
     {{-- {{ Form::close() }} --}}
 </div>
 @endsection
-
-{{-- <input type="text" class="form-control" id="busqueda" name="buscar">
-     <span class="input-group-btn">
-          <button class="btn btn-info disabled" type="button">Buscar</button>
-     </span> --}}

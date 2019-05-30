@@ -20,13 +20,14 @@ mix.scripts([
 	'resources/js/toastr.js',
 	'resources/js/vue.js',
 	'resources/js/axios.js',
-	'resources/js/jquery.dcjqaccordion.2.7.js',
-	'resources/js/jquery.scrollTo.min.js',
-	'resources/js/common-scripts.js',
+	// 'resources/js/jquery.dcjqaccordion.2.7.js',
+	// 'resources/js/jquery.scrollTo.min.js',
+	// 'resources/js/common-scripts.js',
 	'resources/js/app.js',
 	], 'public/js/app.js').
 styles([
 	'resources/css/bootstrap.min.css',
 	'resources/css/toastr.css',
+	// 'resources/css/app2.css',
 	'resources/css/app.css',
 	], 'public/css/app.css');

@@ -14111,7 +14111,7 @@ return /******/ (function(modules) { // webpackBootstrap
 // 				this.getKeeps(); //
 // 				toastr.success('Eliminado Correctamente');
 // 			});
-// 		}	
+// 		}
 // 	}
 // });
 
@@ -14134,26 +14134,49 @@ return /******/ (function(modules) { // webpackBootstrap
 //   }
 // });
 
+
+var url = 'http://localhost:8000/';
+var urlClientes = url + 'clientes';
+var urlProductos = url + 'productos';
 new Vue({
-  el: '#ModalCliente',
+  el: '#create_factura',
   created: function(){
     this.getClientes();
   },
   data: {
-    clientes: [
-      {nit: '', nombre: '', direccion: ''}
-    ],
-    obtener: [
-      {nit: '', nombre: '', direccion: ''}
-    ],
+    clientes: [],
+    productos: [],
+    cnit: '',
+    cnom: '',
+    cdir: '',
+    busca: ''
   },
   methods:
   {
     getClientes(){
-      var urlClientes = 'http://localhost:8000/clientes';
       axios.get(urlClientes).then(response => {
         this.clientes = response.data
       });
     },
+    verCliente(index){
+      this.cnit = this.clientes[index].nit;
+      this.cnom = this.clientes[index].nombre;
+      this.cdir = this.clientes[index].direccion;
+    },
+    getProductos(){
+      axios.get(urlProductos).then(response => {
+        this.productos = response.data
+      });
+    },
+    presionar(){
+      alert('presiono');
+    }
   }
-})
+  // computed: {
+  //       filtroproducto: function(){
+  //         return this.productos.filter((producto) => {
+  //           return producto.descripcion.match(this.busca);
+  //         });
+  //       }
+  //     }
+});

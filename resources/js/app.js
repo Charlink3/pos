@@ -53,10 +53,10 @@ new Vue({
   },
   data: {
     clientes: [],
+    productos: [],
     cnit: '',
     cnom: '',
     cdir: '',
-    productos: [],
     busca: ''
   },
   methods:
@@ -74,14 +74,17 @@ new Vue({
     getProductos(){
       axios.get(urlProductos).then(response => {
         this.productos = response.data
-      })
-    }, 
-  },
-  computed: {
-        filtroproducto: function(){
-          return this.productos.filter((producto) => {
-            return producto.descripcion.match(this.busca);
-          });
-        }
-      }
+      });
+    },
+    presionar(){
+      alert('presiono');
+    }
+  }
+  // computed: {
+  //       filtroproducto: function(){
+  //         return this.productos.filter((producto) => {
+  //           return producto.descripcion.match(this.busca);
+  //         });
+  //       }
+  //     }
 });
